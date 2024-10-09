@@ -73,7 +73,7 @@ dest_host_add(const char *prog_name, struct dest **hosts, size_t *nhosts,
 	*s_port = '\0';
 	s_port++;
 
-	s_vnid = strchr(s_port, '.');
+	s_vnid = strrchr(s_port, '.');
 	if (!s_vnid) {
 		fprintf(stderr, "VNID is required\n");
 		print_usage(prog_name);
