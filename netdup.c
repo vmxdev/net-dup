@@ -111,7 +111,7 @@ dest_host_add(const char *prog_name, struct dest **hosts, size_t *nhosts,
 			/* success */
 			struct dest *dtmp;
 
-			dtmp = realloc(*hosts,
+			dtmp = (struct dest *)realloc(*hosts,
 				(*nhosts + 1) * sizeof(struct dest));
 			if (!dtmp) {
 				fprintf(stderr, "realloc() failed\n");
@@ -148,7 +148,7 @@ main(int argc, char *argv[])
 	int opt;
 
 	char *ifname = NULL;
-	char *filter = "";
+	const char *filter = "";
 
 	struct dest *hosts = NULL;
 	size_t nhosts = 0;
